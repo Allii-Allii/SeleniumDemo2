@@ -1,59 +1,57 @@
 package dev.selenium;
 
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-import java.util.List;
-import java.util.Set;
+public class SeleniumDemo extends MainDriver {
+@Test
+    public void TestOpenBrowser () {
 
-public class SeleniumDemo {
+   // WebElement textInput = driver.findElement(By.cssSelector("#my-text-id"));
+    WebElement textInput =driver.findElement(By.xpath("//*[@id='my-text-id' ]"));
+    textInput.click();
 
-    WebDriver driver;
+    //WebElement password = driver.findElement(By.cssSelector("[type=password]"));
+    WebElement password =driver.findElement(By.xpath("//*[@type='password']"));
+    password.click();
 
-    @BeforeMethod
+    //WebElement textarea = driver.findElement(By.cssSelector("[name=my-textarea]"));
+    WebElement textarea = driver.findElement(By.xpath("//*[@name='my-textarea']"));
+    textarea.click();
 
-    public void before(){
-        driver = new ChromeDriver();
+    //WebElement textarea1 = driver.findElement(By.cssSelector("textarea.form-control"));
+    WebElement textarea1 = driver.findElement(By.xpath("//textarea[contains(@class,'form-control')]"));
+    textarea1.click();
 
-        driver.get("https://www.selenium.dev/selenium/web/web-form.html");
+    //WebElement checkedCheckbox = driver.findElement(By.cssSelector("#my-check-1"));
+    WebElement checkedCheckbox = driver.findElement(By.xpath("//*[@id='my-check-1']"));
+    checkedCheckbox.click();
 
-    }
+   // WebElement defaultCheckbox = driver.findElement(By.cssSelector("#my-check-2"));
+    WebElement defaultCheckbox = driver.findElement(By.xpath("//*[@id='my-check-2']"));
+    defaultCheckbox.click();
 
-    @Test
-    public void testOpenBrowser(){
+    //WebElement dataPicker = driver.findElement(By.cssSelector("input.form-control[name=my-date]"));
+    WebElement dataPicker = driver.findElement(By.xpath("//input[contains(@class,'form-control') and contains(@name,'my-date')]"));
+    dataPicker.click();
 
-        driver = new ChromeDriver();
-
-        driver.get("https://www.selenium.dev/selenium/web/web-form.html");
-
-        driver.getTitle();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
-
-        WebElement textBox = driver.findElement(By.name("my-text"));
-        WebElement submitButton = driver.findElement(By.cssSelector("button"));
-
+    //WebElement colorPicker = driver.findElement(By.cssSelector("[type=color]"));
+    WebElement colorPicker = driver.findElement(By.xpath("//*[@type='color']"));
+    colorPicker.click();
 
 
-        textBox.sendKeys("Selenium");
-        submitButton.click();
+    //WebElement submitButton = driver.findElement(By.cssSelector("button[type=submit]"));
+    WebElement submitButton = driver.findElement(By.xpath("//button[contains(@type,'submit')]"));
+    submitButton.click();
 
-        WebElement message = driver.findElement(By.id("message"));
-        message.getText();
 
-        }
 
-        @AfterMethod
-    public void tearDown(){
-            driver.quit();
 
-        }
+
+
+}
 
     }
 
