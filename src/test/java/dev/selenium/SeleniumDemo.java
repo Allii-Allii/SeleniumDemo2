@@ -9,9 +9,10 @@ public class SeleniumDemo extends MainDriver {
 @Test
     public void TestOpenBrowser () {
 
+
    // WebElement textInput = driver.findElement(By.cssSelector("#my-text-id"));
     WebElement textInput =driver.findElement(By.xpath("//*[@id='my-text-id' ]"));
-    textInput.click();
+    //textInput.click();
 
     //WebElement password = driver.findElement(By.cssSelector("[type=password]"));
     WebElement password =driver.findElement(By.xpath("//*[@type='password']"));
